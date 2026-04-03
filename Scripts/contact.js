@@ -6,15 +6,41 @@ menuToggle.addEventListener("click", function () {
   navMenu.classList.toggle("show");
 });
 
-const contactForm = document.getElementById("contactForm");
+const form = document.getElementById("contactForm");
 const formMessage = document.getElementById("formMessage");
 
-contactForm.addEventListener("submit", function(e){
+form.addEventListener("submit", async function (e) {
   e.preventDefault();
-  formMessage.textContent = "Your message has been sent successfully.";
-  contactForm.reset();
 
-  setTimeout(() => {
-    formMessage.textContent = "";
-  }, 4000);
+  const formData = new FormData(form);
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
+
+  formMessage.style.color = "#ffffff";
+  formMessage.textContent = "Sending...";
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: json
+    });
+
+    const result = await response.json();
+
+    if (response.status === 200) {
+      formMessage.style.color = "lightgreen";
+      formMessage.textContent = "Message sent successfully!";
+      form.reset();
+    } else {
+      formMessage.style.color = "red";
+      formMessage.textContent = result.message || "Something went wrong.";
+    }
+  } catch (error) {
+    formMessage.style.color = "red";
+    formMessage.textContent = "Network error. Please try again.";
+  }
 });
