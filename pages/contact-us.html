@@ -1,0 +1,199 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Velmora Corporation</title>
+  <link rel="icon" type="image/png" href="../images/Velmora Logo.png"/>
+  <link rel="stylesheet" href="../Styles/contact.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<section class="navbar-section">
+    <nav class="navbar">
+      <a href="../Pages/index.html" class="logo">
+        <img src="../images/Velmora Logo.png" alt="Velmora Logo">
+        <div class="logo-text">
+          <h2>Velmora.Co</h2>
+        </div>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="../Pages/index.html">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+        </ul>
+        <a href="../Pages/contact-us.html" class="nav-btn">Contact Us</a>
+      </div>
+    </nav>
+  </section>
+
+  <section class="contact-hero">
+    <div class="contact-container">
+      <div class="contact-left">
+        <p class="section-tag">Contact Us</p>
+        <h1>Let’s Build Something Great Together</h1>
+        <p class="hero-text">
+          Have a project in mind or want to discuss your business goals?
+          Reach out to Velmora Corporation and our team will get back to you promptly.
+        </p>
+
+        <div class="contact-info-list">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <h3>Office Address</h3>
+              <p>Dubai, United Arab Emirates</p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fa-solid fa-phone-volume"></i>
+            </div>
+            <div>
+              <h3>Call Us</h3>
+              <p>+971 52 874 9751</p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <h3>Email Us</h3>
+              <p>velmora.corporation@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fa-regular fa-clock"></i>
+            </div>
+            <div>
+              <h3>Working Hours</h3>
+              <p>Mon - Fri : 9:00 AM - 6:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <form class="contact-form" id="contactForm">
+          <h2>Send a Message</h2>
+
+          <div class="input-row">
+            <div class="input-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" placeholder="Enter first name" required />
+            </div>
+
+            <div class="input-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" placeholder="Enter last name" required />
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="input-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="Enter email address" required />
+            </div>
+
+            <div class="input-group">
+              <label for="phone">Phone Number</label>
+              <input type="text" id="phone" placeholder="Enter phone number" />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="Enter subject" required />
+          </div>
+
+          <div class="input-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="6" placeholder="Write your message here..." required></textarea>
+          </div>
+
+          <button type="submit" class="contact-btn">Send Message</button>
+          <p class="form-message" id="formMessage"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">
+          <img src="../images/Velmora Logo.png" alt="Velmora Logo">
+          <div class="footer-logo-text">
+            <h2>Velmora.Co</h2>
+          </div>
+        </a>
+
+        <p class="footer-description">
+          Velmora Corporation delivers modern digital solutions including website development,
+          mobile applications, game development, and business technology services built for growth.
+        </p>
+
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/velmora.corporation/"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="../pages/index.html">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="../pages/contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">Mobile Apps</a></li>
+          <li><a href="#">Game Development</a></li>
+          <li><a href="#">UI/UX Design</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i><span>Dubai, United Arab Emirates</span></li>
+          <li><i class="fa-solid fa-phone"></i><span>+971 52 874 9751</span></li>
+          <li><i class="fa-solid fa-envelope"></i><span>velmora.corporation@gmail.com</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Velmora.Co All Rights Reserved.</p>
+    </div>
+
+  </div>
+</footer> 
+
+  <script src="../Scripts/contact.js"></script>
+</body>
+</html>
