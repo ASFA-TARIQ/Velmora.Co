@@ -16,8 +16,7 @@
       <a href="index.html" class="logo">
         <img src="../images/Velmora Logo.png" alt="Velmora Logo">
         <div class="logo-text">
-          <h2>Velmora</h2>
-          <span>Corporation</span>
+          <h2>Velmora.co</h2>
         </div>
       </a>
 
@@ -31,8 +30,7 @@
         <ul class="nav-links">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about-us.html">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#projects">Projects</a></li>
+          <li><a href="projects.html">Projects</a></li>
         </ul>
         <a href="contact-us.html" class="nav-btn">Contact Us</a>
       </div>
@@ -71,43 +69,49 @@
         </p>
       </div>
 
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
-          <h3>Website Development</h3>
-          <p>Custom responsive websites with elegant layouts, speed, and modern structure.</p>
-        </div>
+<div class="services-grid">
 
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-          <h3>Mobile App Development</h3>
-          <p>Smart and user-friendly mobile apps designed for real engagement and usability.</p>
-        </div>
+  <div class="service-card">
+    <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
+    <h3>Website Development</h3>
+    <p>
+      We build modern, responsive, and high-performance websites tailored to your needs. 
+      Our focus is on clean design, fast loading speed, SEO-friendly structure, and a seamless 
+      user experience across all devices to help businesses grow online.
+    </p>
+  </div>
 
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-gamepad"></i></div>
-          <h3>Game Development</h3>
-          <p>Creative interactive concepts with strong visuals and engaging user experiences.</p>
-        </div>
+  <div class="service-card">
+    <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+    <h3>Mobile App Development</h3>
+    <p>
+      We develop smart and user-friendly mobile applications that provide smooth performance 
+      and intuitive navigation. From idea to execution, we create apps that are reliable, 
+      scalable, and designed to deliver real value to users.
+    </p>
+  </div>
 
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-pen-ruler"></i></div>
-          <h3>UI/UX Design</h3>
-          <p>Modern digital interface design focused on clarity, beauty, and ease of use.</p>
-        </div>
+  <div class="service-card">
+    <div class="service-icon"><i class="fa-solid fa-gamepad"></i></div>
+    <h3>Game Development</h3>
+    <p>
+      Our team designs engaging and creative game concepts with interactive gameplay and 
+      attractive visuals. We focus on delivering immersive user experiences that combine 
+      creativity, storytelling, and modern design techniques.
+    </p>
+  </div>
 
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
-          <h3>Business Solutions</h3>
-          <p>Technology-driven digital support for businesses looking to scale professionally.</p>
-        </div>
+  <div class="service-card">
+    <div class="service-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+    <h3>UI/UX Design</h3>
+    <p>
+      We create visually appealing and user-centered interfaces that enhance usability and 
+      engagement. Our design approach focuses on clarity, consistency, and smooth user journeys 
+      to ensure every product feels intuitive and professional.
+    </p>
+  </div>
 
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-bullhorn"></i></div>
-          <h3>Brand Presence</h3>
-          <p>Strong digital presentation to help your business appear polished and credible online.</p>
-        </div>
-      </div>
+</div>
     </div>
   </section>
 
@@ -192,18 +196,8 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about-us.html">About</a></li>
-            <li><a href="#services">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
             <li><a href="contact-us.html">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h3>Services</h3>
-          <ul>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Mobile Apps</a></li>
-            <li><a href="#">Game Development</a></li>
-            <li><a href="#">UI/UX Design</a></li>
           </ul>
         </div>
 
@@ -224,6 +218,70 @@
     </div>
   </footer> 
 
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
   <script src="../Scripts/script.js"></script>
+
+  <script>
+  const revealElements = document.querySelectorAll('.reveal');
+  const navbarSection = document.querySelector('.navbar-section');
+  const backToTopBtn = document.getElementById('backToTop');
+
+  let lastScrollTop = 0;
+
+  const revealOnScroll = () => {
+    revealElements.forEach((el) => {
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+      const revealPoint = 100;
+
+      if (elementTop < windowHeight - revealPoint) {
+        el.classList.add('active');
+      }
+    });
+  };
+
+  const handleScrollEffects = () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll <= 10) {
+      navbarSection.classList.remove('scrolled', 'hide-nav');
+      navbarSection.classList.add('show-nav');
+      backToTopBtn.classList.remove('show');
+    } else {
+      navbarSection.classList.add('scrolled');
+      backToTopBtn.classList.add('show');
+
+      if (currentScroll > lastScrollTop) {
+        navbarSection.classList.add('hide-nav');
+        navbarSection.classList.remove('show-nav');
+      } else {
+        navbarSection.classList.add('show-nav');
+        navbarSection.classList.remove('hide-nav');
+      }
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  };
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    revealOnScroll();
+    handleScrollEffects();
+  });
+
+  window.addEventListener('load', () => {
+    revealOnScroll();
+    handleScrollEffects();
+  });
+</script>
 </body>
 </html>

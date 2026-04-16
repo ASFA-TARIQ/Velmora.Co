@@ -16,8 +16,7 @@
       <a href="index.html" class="logo">
         <img src="../images/Velmora Logo.png" alt="Velmora Logo">
         <div class="logo-text">
-          <h2>Velmora</h2>
-          <span>Corporation</span>
+          <h2>Velmora.co</h2>
         </div>
       </a>
 
@@ -30,9 +29,8 @@
       <div class="nav-menu" id="navMenu">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="about-us.html" class="active">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
         </ul>
         <a href="contact-us.html" class="nav-btn">Contact Us</a>
       </div>
@@ -134,7 +132,7 @@
         <div class="team-card reveal fade-up delay-1">
             <div class="team-avatar floating-icon"><i class="fa-solid fa-user"></i></div>
             <h3>Asfa Tariq</h3>
-            <span>Team Lead / Full Stack Developer / UX/UI Designer / Social Marketing</span>
+            <span>Project Manager / Full Stack Developer / UX/UI Designer / Social Marketing</span>
             <p>Leads the team with vision and structure while contributing to full stack development, intuitive UI/UX design, and creative social marketing strategies that strengthen Velmora’s digital presence.</p>
         </div>
 
@@ -243,19 +241,9 @@
           <h3>Quick Links</h3>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="index.html#services">Services</a></li>
+            <li><a href="about-us.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
             <li><a href="contact-us.html">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h3>Services</h3>
-          <ul>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Mobile Apps</a></li>
-            <li><a href="#">Game Development</a></li>
-            <li><a href="#">UI/UX Design</a></li>
           </ul>
         </div>
 
@@ -276,25 +264,70 @@
     </div>
   </footer>
 
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
   <script src="../Scripts/script.js"></script>
 
-  <script>
-    const revealElements = document.querySelectorAll('.reveal');
+<script>
+  const revealElements = document.querySelectorAll('.reveal');
+  const navbarSection = document.querySelector('.navbar-section');
+  const backToTopBtn = document.getElementById('backToTop');
 
-    const revealOnScroll = () => {
-      revealElements.forEach((el) => {
-        const windowHeight = window.innerHeight;
-        const elementTop = el.getBoundingClientRect().top;
-        const revealPoint = 100;
+  let lastScrollTop = 0;
 
-        if (elementTop < windowHeight - revealPoint) {
-          el.classList.add('active');
-        }
-      });
-    };
+  const revealOnScroll = () => {
+    revealElements.forEach((el) => {
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+      const revealPoint = 100;
 
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-  </script>
+      if (elementTop < windowHeight - revealPoint) {
+        el.classList.add('active');
+      }
+    });
+  };
+
+  const handleScrollEffects = () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll <= 10) {
+      navbarSection.classList.remove('scrolled', 'hide-nav');
+      navbarSection.classList.add('show-nav');
+      backToTopBtn.classList.remove('show');
+    } else {
+      navbarSection.classList.add('scrolled');
+      backToTopBtn.classList.add('show');
+
+      if (currentScroll > lastScrollTop) {
+        navbarSection.classList.add('hide-nav');
+        navbarSection.classList.remove('show-nav');
+      } else {
+        navbarSection.classList.add('show-nav');
+        navbarSection.classList.remove('hide-nav');
+      }
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  };
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    revealOnScroll();
+    handleScrollEffects();
+  });
+
+  window.addEventListener('load', () => {
+    revealOnScroll();
+    handleScrollEffects();
+  });
+</script>
 </body>
 </html>
