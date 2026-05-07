@@ -94,7 +94,7 @@
             <p>
               Plan smarter, love deeper — download Vowera and make your wedding journey beautifully organized.
             </p>
-            <a href="../apk/vowera.apk" class="primary-btn download-pulse" download>
+            <a id="apkDownload" class="primary-btn download-pulse" download>
               <i class="fa-solid fa-download"></i>
               Download Vowera APK
             </a>
@@ -360,6 +360,14 @@
   <script src="../Scripts/script.js"></script>
 
   <script>
+
+      const apkLink = document.getElementById("apkDownload");
+
+  apkLink.href =
+    location.hostname === "127.0.0.1" || location.hostname === "localhost"
+      ? "/public/apk/vowera.apk"
+      : "/apk/vowera.apk";
+      
     const revealElements = document.querySelectorAll('.reveal');
     const navbarSection = document.querySelector('.navbar-section');
     const backToTopBtn = document.getElementById('backToTop');
